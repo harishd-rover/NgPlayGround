@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { HttpEvent, HttpEventType, HttpHandlerFn, HttpInterceptorFn, HttpRequest, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { Observable, finalize, tap, window } from 'rxjs';
 
-const colorLog = (color: string) => {
+const colorLogFactory = (color: string) => {
   return (...args: any) => {
     let str = '%c';
     args.forEach((arg: any) => {
@@ -16,11 +16,11 @@ const colorLog = (color: string) => {
 }
 
 
-export const logInRed = colorLog('tomato');
-export const logInGreen = colorLog('chartreuse');
-export const logInPink = colorLog('fuchsia');
-export const logInYellow = colorLog('yellow');
-export const logInBlue = colorLog('aqua');
+export const logInRed = colorLogFactory('tomato');
+export const logInGreen = colorLogFactory('chartreuse');
+export const logInPink = colorLogFactory('fuchsia');
+export const logInYellow = colorLogFactory('yellow');
+export const logInBlue = colorLogFactory('aqua');
 
 
 
