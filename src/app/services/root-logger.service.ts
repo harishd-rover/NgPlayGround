@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RootLoggerService {
-
-  constructor() { 
+  private name = "Harish"
+  constructor() {
     console.log('Root Logger created')
   }
 }

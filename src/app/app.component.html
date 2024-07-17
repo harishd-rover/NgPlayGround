@@ -1,11 +1,18 @@
-<div>
-  <h1>Hello, {{ title }}</h1>
-</div>
-
-<br>
-<br>
+<a [style.paddingRight.px]="20" [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
+<a [routerLink]="['/about']" routerLinkActive="router-link-active">About</a>
 <br>
 
-<app-parent></app-parent>
 
-<router-outlet />
+@if (data$ | async; as data) {
+<h1> {{ data.name | uppercase}}</h1>
+}
+@else {
+<h1>loading name from API....</h1>
+}
+
+
+
+
+
+
+<router-outlet> </router-outlet>

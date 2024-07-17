@@ -1,4 +1,28 @@
-<p>Inside parent</p>
-<app-child></app-child>
-<app-child></app-child>
-<p>Inside Parent</p>
+<div (click)="handleClick()">
+  <input #input type="text">
+
+  <div #para>Inside ng Container para
+    <p>hfhfhf</p>
+    <p>fsbfjbfjsfb</p>
+  </div>
+  <ng-template #container>
+
+    <p>Inside ng Container </p>
+    <p>Inside ng Container </p>
+  </ng-template>
+  <app-child *ngIf="clildVisible">
+    <div style="background-color: red;" ngProjectAs="[footer]">
+      this is footer
+    </div>
+    <div style="background-color: green;" ngProjectAs="[header]">
+      this is Header
+    </div>
+
+    fdgfagdagdagdagdagagae
+  </app-child>
+  <!-- <app-child></app-child> -->
+  <p>Inside Parent</p>
+
+  <button (click)="destroyChild()">Destroy Child</button>
+
+</div>

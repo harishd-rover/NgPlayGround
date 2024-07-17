@@ -1,1 +1,18 @@
 <p>child works!</p>
+
+<div class="parent" (click)="handleParentClick()">
+  <div>
+    <div class="child">
+      <button (click)="handleButtonClick()">Click here</button>
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <ng-content select="[header]"></ng-content>
+  <ng-content select="[footer]"></ng-content>
+</div>
+
+
+<p>child works!</p>

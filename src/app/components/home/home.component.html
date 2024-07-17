@@ -1,0 +1,12 @@
+<br><button (click)="handleClick()">Open</button>
+
+<div [class.overlay]="dialogOpen" style="display: none;" class="overlay"></div>
+
+<dialog #dialog>This is an open dialog window
+  <div>
+    <h1>Hello, {{ title }}</h1>
+  </div>
+  <br>
+  <app-parent></app-parent>
+  <button (click)="handleClose()">close</button>
+</dialog>

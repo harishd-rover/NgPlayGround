@@ -1,0 +1,23 @@
+dialog {
+  position: fixed;
+  top: 20px;
+  height: 80vh;
+  width: 90%;
+  overflow: scroll;
+
+  button{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+.overlay{
+  display: block !important;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  left: 0px;
+  height: 100%;
+  background-color: #1818188a;
+}
