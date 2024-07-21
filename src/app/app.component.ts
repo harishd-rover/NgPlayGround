@@ -12,6 +12,7 @@ import { Observable, interval, map, timer } from 'rxjs';
 import { AsyncPipe, UpperCasePipe } from '@angular/common';
 import { TestDirective } from '../directives/test.directive';
 import { ButtonDirective } from '../directives/button.directive';
+import { NavigationComponent } from "../navigation/navigation/navigation.component";
 
 // we can have some kind of Tokens/Variables to store some userDefined values accross the application,
 // we can use these Tokens while sending the requests,
@@ -32,7 +33,8 @@ export const IS_USER_ADMIN_HTTP_CONTEXT_TOKEN = new HttpContextToken(
     AsyncPipe,
     UpperCasePipe,
     TestDirective,
-  ],
+    NavigationComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

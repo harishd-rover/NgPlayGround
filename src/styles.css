@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-
+body{
+  box-sizing: border-box;
+  padding: 20px;
+}
 
 button.primary{
   height: 40px;

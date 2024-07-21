@@ -1,0 +1,33 @@
+ul {
+  padding-inline-start: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 15%;
+
+
+  li {
+    list-style-type: none;
+
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      display: inline-block;
+      width: 100%;
+      border: 1px solid black;
+      text-align: center;
+      background-color: #ffa0a0;
+
+      color: #000000;
+
+
+    }
+
+  }
+}
+
+
+.router-link-active{
+  color: #000000;
+  background-color: #ff4b4b !important;
+}

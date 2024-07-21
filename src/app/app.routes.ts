@@ -4,10 +4,18 @@ import { HomeComponent } from '../components/home/home.component';
 
 
 export const routes: Routes = [
-  {path:'about',
-    component:AboutComponent
+
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch:'full'
   },
-  {path:'home',
-    component:HomeComponent
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];
