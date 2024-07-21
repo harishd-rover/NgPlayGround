@@ -5,18 +5,28 @@ import {
   HostListener,
   Renderer2,
   inject,
+  input,
+  output,
 } from '@angular/core';
 
 @Directive({
-  selector: 'button[type=primary]',
+  selector: 'button[btnType]',
   standalone: true,
   exportAs: 'btnDir',
   host: {
-    'class': 'primary',
-    '(mouseleave)': 'handleOnLeave()',
+    'class': 'primary',    // static binding
+    '(mouseleave)': 'handleOnLeave()',  // event binding
+    '[title]': 'title()',    // property binding
+    '(click)': 'handleClick($event)'  // event binding with event data
   },
 })
 export class ButtonDirective {
+
+  title = input.required({ alias: 'btnTitle' });
+  btnType = input.required({ alias: 'btnType' });
+
+  btnClick = output<any>();
+
   private host = inject<ElementRef<HTMLButtonElement>>(ElementRef);
   private renderer = inject(Renderer2);
   @HostBinding('style.background-color') bgColor = 'aqua';
@@ -41,5 +51,10 @@ export class ButtonDirective {
     this.host.nativeElement.style.boxShadow = 'none';
     this.host.nativeElement.style.cursor = 'none';
     this.host.nativeElement.style.backgroundColor = 'aqua';
+  }
+
+  handleClick(event: any) {
+    this.btnClick.emit(event)
+    console.log(event)
   }
 }

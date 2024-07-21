@@ -17,6 +17,8 @@ export class HomeComponent {
   dialogOpen = false;
   @ViewChild('btn') btnDir !: ButtonDirective;
   @ViewChild('dialog') dialog !: ElementRef;
+
+  
   handleClick() {
     console.log("AppCompoent grandParent Host clicked")
     this.dialog.nativeElement.show()
