@@ -1,4 +1,11 @@
-<br><button (click)="handleClick()">Open</button>
+<br><button type="primary" #btn="btnDir" (click)="handleClick()">Open</button><br>
+<br>
+<br>
+
+
+<app-file-upload-download></app-file-upload-download>
+
+
 
 <div [class.overlay]="dialogOpen" style="display: none;" class="overlay"></div>
 

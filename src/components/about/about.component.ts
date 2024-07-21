@@ -1,7 +1,8 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { interval } from 'rxjs';
-import { logInBlue, logInGreen, logInPink, logInRed, logInYellow } from '../../app.config';
+import { logInBlue, logInGreen, logInPink } from '../../utilities/logger.utility';
+
 
 @Component({
   selector: 'app-about',

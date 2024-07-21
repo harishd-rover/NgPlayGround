@@ -31,6 +31,8 @@ export class ParentComponent {
   @ViewChild('container', { read: ElementRef }) elementRef!: ElementRef<any>;
   @ViewChild('input', { read: ViewContainerRef }) input!: ViewContainerRef;
   @ViewChild('para', { read: ViewContainerRef }) para!: ViewContainerRef;
+  @ViewChild('ngcontainer') ngcontainer:any;
+
 
   private logService = inject(LoggerService);
 
@@ -52,6 +54,9 @@ export class ParentComponent {
     if (this.templateRef)
       this.para.createEmbeddedView(this.templateRef)
     // this.para.nativeElement.style.color = 'red'
+
+
+    console.log(this.ngcontainer);
   }
 
   destroyChild() {

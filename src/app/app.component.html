@@ -2,6 +2,8 @@
 <a [routerLink]="['/about']" routerLinkActive="router-link-active">About</a>
 <br>
 
+<div #testDir="testDir" test >Directive applied here..</div>
+
 
 @if (data$ | async; as data) {
 <h1> {{ data.name | uppercase}}</h1>

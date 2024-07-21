@@ -1,6 +1,6 @@
-import { Component, DestroyRef, NgZone, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, DestroyRef, NgZone, OnInit, inject, viewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { ParentComponent } from './components/parent/parent.component';
+import { ParentComponent } from '../components/parent/parent.component';
 import {
   HttpClient,
   HttpContext,
@@ -10,6 +10,8 @@ import {
 } from '@angular/common/http';
 import { Observable, interval, map, timer } from 'rxjs';
 import { AsyncPipe, UpperCasePipe } from '@angular/common';
+import { TestDirective } from '../directives/test.directive';
+import { ButtonDirective } from '../directives/button.directive';
 
 // we can have some kind of Tokens/Variables to store some userDefined values accross the application,
 // we can use these Tokens while sending the requests,
@@ -29,22 +31,31 @@ export const IS_USER_ADMIN_HTTP_CONTEXT_TOKEN = new HttpContextToken(
     RouterLinkActive,
     AsyncPipe,
     UpperCasePipe,
+    TestDirective,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   private httpClient = inject(HttpClient);
   private ngZone = inject(NgZone);
   private destroyerRef = inject(DestroyRef);
   data$!: Observable<any>;
+
+  testDir = viewChild<TestDirective>('testDir');
+
+  ngAfterViewInit() {
+    console.log("from Test Directive")
+    this.testDir()?.LogName();
+    console.log('test Dir', this.testDir());
+  }
 
 
 
   ngOnInit(): void {
     // this.ngZone.runOutsideAngular(() => {
     const timerSub = timer(3000).subscribe(() => {
-      console.clear();
+      // console.clear();
 
       // HTTP Params - we can send any Query params map to HttpClient, it will add these Params map to HTTPRequest Object and it generates URL with those queryparams. makes life easy to generate URLs with encoded Query params..
       // just provide query prams here, httpClient will create URL with these Quueryparams
@@ -53,9 +64,8 @@ export class AppComponent implements OnInit {
         .set('age', 20);
 
       // setting Http headers
-      const httpHeaders: HttpHeaders = new HttpHeaders({
-        'Content-type': 'application/json',
-      });
+      const httpHeaders: HttpHeaders = new HttpHeaders();
+      httpHeaders.set('Content-type', 'application/json',)
 
       // injecting the ContextTokens into the request
       const httpContext: HttpContext = new HttpContext()
@@ -94,6 +104,6 @@ export class AppComponent implements OnInit {
     // })
 
 
-    
+
   }
 }

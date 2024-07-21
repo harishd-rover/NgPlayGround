@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+button.primary{
+  height: 40px;
+  min-width: 100px;
+  border: 2px solid #aa6e98;
+  font-size: 20px;
+}
