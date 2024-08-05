@@ -18,6 +18,16 @@ export const navList: NavList = [
     path: 'about',
 
   },
+  {
+    text: 'Template Driven Forms',
+    path: 'tempForms',
+
+  },
+  {
+    text: 'Reatctive Forms ',
+    path: 'reactForms',
+
+  },
   
 
 

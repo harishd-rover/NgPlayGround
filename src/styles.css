@@ -4,9 +4,19 @@ body{
   padding: 20px;
 }
 
-button.primary{
+button.primary {
   height: 40px;
   min-width: 100px;
   border: 2px solid #aa6e98;
   font-size: 20px;
+}
+
+button.primary:disabled {
+  height: 40px;
+  min-width: 100px;
+  border: 2px solid #aa6e98;
+  font-size: 20px;
+  color: dark !important;
+  background-color: dark !important;
+  pointer-events: none;
 }

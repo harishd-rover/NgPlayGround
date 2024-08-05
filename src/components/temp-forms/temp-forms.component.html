@@ -1,0 +1,17 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+  <input required type="text" name="fname" id="fname" placeholder="First Name" ngModel #fname="ngModel">
+
+  <input required minlength="5" maxlength="10" type="text" name="lname" id="lname" placeholder="Last Name" ngModel
+    #lname="ngModel">
+
+  <input required min="5" max="10" type="number" name="age" id="age" placeholder="Age" ngModel #age="ngModel">
+
+  <!-- If form is invalid and any field is touched... -->
+  <p *ngIf="!form.form.valid && (fname.touched || lname.touched || age.touched)">Invalid Inputs</p>
+
+  <button btnTitle="submit" btnType="Submit" type="submit" [disabled]="!form.form.valid">
+    Submit
+  </button>
+
+</form>

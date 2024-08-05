@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, ElementRef, ViewChild, inject, viewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { interval } from 'rxjs';
 import { logInBlue, logInGreen, logInPink } from '../../utilities/logger.utility';
@@ -12,6 +12,8 @@ import { logInBlue, logInGreen, logInPink } from '../../utilities/logger.utility
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
+
+  @ViewChild('email') email!: ElementRef;
   private desRef = inject(DestroyRef)
   ngOnInit() {
     const sub = interval(1000).subscribe((val) => {
@@ -29,6 +31,7 @@ export class AboutComponent {
 
 
   ngAfterViewInit() {
+    this.email.nativeElement.select();
     const sub2 = interval(2000).subscribe((val) => {
       logInPink("interVal-2: ", val)
     })

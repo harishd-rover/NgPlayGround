@@ -1,2 +1,13 @@
-<h1 [style.fontSize.rem]="10">About Page</h1>
-<a [routerLink]="['/home']" routerLinkActive="router-link-active" >Back</a>
+<div #aboutDiv class="about-container">
+  <h1 [style.fontSize.rem]="10">About Page</h1>
+
+
+  <div>
+    <input [style.height.px]="40" [style.fontSize.px]="20" [style.border]="'2px solid blue'"  #email type="email" name="email" value="harish@gamil.com" id="email">
+  </div>
+  <div>
+    <a [routerLink]="['/home']" routerLinkActive="router-link-active">Back</a>
+
+  </div>
+
+</div>
