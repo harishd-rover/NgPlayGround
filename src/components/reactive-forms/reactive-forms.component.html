@@ -1,1 +1,16 @@
-<p>reactive-forms works!</p>
+<form  (ngSubmit)="onSubmit()">
+
+  <input type="text" name="fname" id="fname" placeholder="First Name" >
+
+  <input type="text" name="lname" id="lname" placeholder="Last Name" >
+
+  <input type="number" name="age" id="age" placeholder="Age">
+
+  <!-- If form is invalid and any field is touched... -->
+  <p >Invalid Inputs</p>
+
+  <button btnTitle="submit" btnType="Submit" type="submit" [disabled]="!userForm.valid">
+    Submit
+  </button>
+
+</form>
