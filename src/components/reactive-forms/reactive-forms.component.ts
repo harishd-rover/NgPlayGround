@@ -31,7 +31,7 @@ export class ReactiveFormsComponent {
         },
       ],
     }),
-    age: new FormControl(5, {
+    age: new FormControl('', {
       validators: [Validators.required, Validators.min(5), Validators.max(10)],
     }),
   });
