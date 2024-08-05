@@ -12,7 +12,7 @@ import { FormControl, FormGroup, NgForm, ReactiveFormsModule, Validators } from 
 export class ReactiveFormsComponent {
   userForm = new FormGroup({
     fname: new FormControl('', { validators: Validators.required }),
-    lname: new FormControl('', { validators: Validators.required }),
+    lname: new FormControl('', { validators: [Validators.required,  Validators.minLength(5)] }),
     age: new FormControl('', { validators: [Validators.required, Validators.min(5), Validators.max(10)], })
   })
 
