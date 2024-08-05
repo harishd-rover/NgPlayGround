@@ -23,7 +23,7 @@ export class ReactiveFormsComponent {
     console.log(this.userForm.controls['age'])
 
     console.log('first name', this.userForm.controls.fname.value)
-    console.log('last name', this.userForm.controls.fname.value)
+    console.log('last name', this.userForm.controls.lname.value)
 
   }
 
