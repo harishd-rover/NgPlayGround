@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './reactive-forms.component.html',
   styleUrl: './reactive-forms.component.css'
 })
@@ -15,15 +16,14 @@ export class ReactiveFormsComponent {
     age: new FormControl('', { validators: [Validators.required, Validators.min(5), Validators.max(10)], })
   })
 
-
-
   onSubmit() {
+    console.log(this.userForm)
     console.log(this.userForm.controls['fname'])
     console.log(this.userForm.controls['lname'])
     console.log(this.userForm.controls['age'])
 
-    console.log('first name', this.userForm.controls.fname)
-    console.log('last name', this.userForm.controls.fname)
+    console.log('first name', this.userForm.controls.fname.value)
+    console.log('last name', this.userForm.controls.fname.value)
 
   }
 

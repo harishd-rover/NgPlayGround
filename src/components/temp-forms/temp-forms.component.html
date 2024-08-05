@@ -8,7 +8,7 @@
   <input required min="5" max="10" type="number" name="age" id="age" placeholder="Age" ngModel #age="ngModel">
 
   <!-- If form is invalid and any field is touched... -->
-  <p *ngIf="!form.form.valid && (fname.touched || lname.touched || age.touched)">Invalid Inputs</p>
+  <p class="error-msg" *ngIf="!form.form.valid && (fname.touched || lname.touched || age.touched)">Invalid Inputs</p>
 
   <button btnTitle="submit" btnType="Submit" type="submit" [disabled]="!form.form.valid">
     Submit

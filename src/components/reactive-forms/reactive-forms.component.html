@@ -1,13 +1,16 @@
-<form  (ngSubmit)="onSubmit()">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
-  <input type="text" name="fname" id="fname" placeholder="First Name" >
+  <input [formControl]="userForm.controls.fname" type="text" name="fname" id="fname" placeholder="First Name">
 
-  <input type="text" name="lname" id="lname" placeholder="Last Name" >
+  <!-- short hand for registering form control. -formControlName  -->
+  <input formControlName="lname" type="text" name="lname" id="lname" placeholder="Last Name">
 
-  <input type="number" name="age" id="age" placeholder="Age">
+  <input formControlName="age" type="number" name="age" id="age" min="5" max="10" placeholder="Age">
 
   <!-- If form is invalid and any field is touched... -->
-  <p >Invalid Inputs</p>
+  <p class="error-msg"
+    *ngIf="userForm.invalid && (userForm.controls.fname.touched || userForm.controls.lname.touched || userForm.controls.age.touched)">
+    Invalid Inputs</p>
 
   <button btnTitle="submit" btnType="Submit" type="submit" [disabled]="!userForm.valid">
     Submit
