@@ -22,9 +22,10 @@ export class ReactiveFormsComponent {
     console.log(this.userForm.controls['lname'])
     console.log(this.userForm.controls['age'])
 
-    console.log('first name', this.userForm.controls.fname.value)
-    console.log('last name', this.userForm.controls.lname.value)
+    console.log('first name', this.userForm.value.fname)
+    console.log('last name', this.userForm.value.lname)
 
+    this.userForm.reset();
   }
 
 }
